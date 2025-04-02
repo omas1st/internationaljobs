@@ -17,8 +17,9 @@
         <li><a href="/contact">Contact</a></li>
         <li><a href="/message">Message</a></li>
         <li><a href="/auth/login">Login</a></li>
+        <!-- Dropdown Menu -->
         <li>
-          <a href="#">More</a>
+          <a href="javascript:void(0);" class="dropdown-btn">Menu</a>
           <ul class="dropdown-menu">
             <li><a href="/blog">Blog</a></li>
             <li><a href="/faq">FAQ</a></li>
@@ -83,5 +84,15 @@
   <footer>
     <p>&copy; 2025 International Jobs. All Rights Reserved.</p>
   </footer>
+
+  <!-- JavaScript to Toggle Dropdown Menu -->
+  <script>
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>

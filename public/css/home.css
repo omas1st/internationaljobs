@@ -59,7 +59,7 @@ header {
   color: #ffdd57;
 }
 
-/* Dropdown Menu for Navbar */
+/* Dropdown Menu */
 .navbar .nav-links li:hover .dropdown-menu {
   display: block;
 }
@@ -73,6 +73,7 @@ header {
   border-radius: 4px;
   padding: 10px 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .navbar .nav-links .dropdown-menu li {
