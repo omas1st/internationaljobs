@@ -17,15 +17,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
   background: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+  padding: 10px 20px;
   width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .navbar .logo a {
@@ -40,54 +34,68 @@ header {
   margin: 0;
   padding: 0;
   display: flex;
-  position: relative;
 }
 
 .navbar .nav-links li {
   margin-left: 20px;
-  position: relative;
 }
 
 .navbar .nav-links li a {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
-  transition: color 0.3s ease;
+  padding: 10px;
+  transition: background 0.3s ease;
 }
 
 .navbar .nav-links li a:hover {
-  color: #ffdd57;
+  background-color: #ffdd57;
+  border-radius: 4px;
 }
 
-/* Dropdown Menu */
-.navbar .nav-links li:hover .dropdown-menu {
-  display: block;
+/* Mobile Menu */
+.navbar .menu-toggle {
+  display: none;
 }
 
-.navbar .nav-links .dropdown-menu {
+.navbar .nav-links.mobile {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 60px;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+  padding: 20px;
+  z-index: 5;
+}
+
+.navbar .nav-links.mobile li {
+  margin: 10px 0;
+}
+
+.navbar .nav-links.mobile li a {
+  padding: 12px;
+  background: #333;
+  color: #fff;
   border-radius: 4px;
-  padding: 10px 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1;
 }
 
-.navbar .nav-links .dropdown-menu li {
-  margin: 5px 0;
+.navbar .menu-toggle {
+  display: block;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
 }
 
-.navbar .nav-links .dropdown-menu li a {
-  font-size: 14px;
-  padding: 10px;
+.navbar .nav-links.show {
+  display: flex;
 }
 
+/* Hero Section */
 .hero {
   background: url('/images/image1.jpg') no-repeat center center/cover;
-  height: 100vh;  /* Full viewport height */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,10 +239,10 @@ footer {
 
 /* Mobile View Adjustments */
 @media screen and (max-width: 768px) {
-  .navbar {
+  .navbar .container {
       flex-direction: column;
       align-items: flex-start;
-      padding: 20px;
+      width: 90%;
   }
 
   .navbar .nav-links {

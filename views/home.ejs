@@ -9,25 +9,20 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo"><a href="/">International Jobs</a></div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/jobs">Jobs</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/message">Message</a></li>
-        <li><a href="/auth/login">Login</a></li>
-        <!-- Dropdown Menu -->
-        <li>
-          <a href="javascript:void(0);" class="dropdown-btn">Menu</a>
-          <ul class="dropdown-menu">
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/terms">Terms & Conditions</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="container">
+        <div class="logo"><a href="/">International Jobs</a></div>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/jobs">Jobs</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/message">Message</a></li>
+          <li><a href="/auth/login">Login</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+      </div>
     </nav>
+
     <div class="hero">
       <div class="overlay">
         <h1>Find Your Dream International Job</h1>
@@ -39,6 +34,7 @@
       </div>
     </div>
   </header>
+
   <main>
     <section class="features">
       <div class="feature">
@@ -55,44 +51,41 @@
       </div>
     </section>
 
-    <!-- Success Stories Section -->
     <section class="success-stories">
       <h2>Success Stories</h2>
       <div class="story">
-        <img src="/images/img10.jpg" alt="John Doe" />
+        <img src="/images/img10.jpg" alt="Success Story 1">
         <div class="story-info">
           <h3>John Doe</h3>
-          <p>John found his dream job in Canada through our platform. With his new position, he's now living the life he always wanted.</p>
+          <p>“Thanks to International Jobs, I landed my dream job in London. The platform is easy to use, and the support team was amazing!”</p>
         </div>
       </div>
       <div class="story">
-        <img src="/images/img11.jpg" alt="Sarah Lee" />
+        <img src="/images/img11.jpg" alt="Success Story 2">
         <div class="story-info">
-          <h3>Sarah Lee</h3>
-          <p>Sarah successfully moved to the UK for a role in a top tech company. She thanks our platform for connecting her with the right employers.</p>
+          <h3>Jane Smith</h3>
+          <p>“I found a fantastic opportunity in Australia. This site helped me every step of the way. Highly recommend it!”</p>
         </div>
       </div>
       <div class="story">
-        <img src="/images/img12.jpg" alt="Mark Smith" />
+        <img src="/images/img12.jpg" alt="Success Story 3">
         <div class="story-info">
-          <h3>Mark Smith</h3>
-          <p>Mark's career took off in Australia after finding a great opportunity through our platform. He’s now living his dream in Sydney.</p>
+          <h3>Michael Johnson</h3>
+          <p>“International Jobs helped me secure a job in New York. I couldn’t have done it without them!”</p>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
     <p>&copy; 2025 International Jobs. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript to Toggle Dropdown Menu -->
   <script>
-    const dropdownBtn = document.querySelector('.dropdown-btn');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-    dropdownBtn.addEventListener('click', () => {
-      dropdownMenu.classList.toggle('show');
-    });
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('show');
+    }
   </script>
 </body>
 </html>
