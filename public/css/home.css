@@ -40,10 +40,12 @@ header {
   margin: 0;
   padding: 0;
   display: flex;
+  position: relative;
 }
 
 .navbar .nav-links li {
   margin-left: 20px;
+  position: relative;
 }
 
 .navbar .nav-links li a {
@@ -57,7 +59,31 @@ header {
   color: #ffdd57;
 }
 
-/* Hero Section */
+/* Dropdown Menu for Navbar */
+.navbar .nav-links li:hover .dropdown-menu {
+  display: block;
+}
+
+.navbar .nav-links .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-links .dropdown-menu li {
+  margin: 5px 0;
+}
+
+.navbar .nav-links .dropdown-menu li a {
+  font-size: 14px;
+  padding: 10px;
+}
+
 .hero {
   background: url('/images/image1.jpg') no-repeat center center/cover;
   height: 100vh;  /* Full viewport height */
@@ -141,6 +167,55 @@ header {
 }
 
 .feature p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Success Stories Section */
+.success-stories {
+  background: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.success-stories h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.success-stories .story {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: left;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  max-width: 900px;
+  width: 100%;
+}
+
+.success-stories .story img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.success-stories .story .story-info {
+  max-width: 700px;
+}
+
+.success-stories .story .story-info h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.success-stories .story .story-info p {
   font-size: 16px;
   color: #555;
 }
