@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analytics - Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/jobs">Job Management</a></li>
+        <li><a href="/admin/users">User Management</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+        <li><a href="/admin/analytics">Analytics</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <h1>Analytics</h1>
+    <p>Traffic: <%= analytics.traffic %></p>
+    <p>Conversion Rate: <%= analytics.conversions %></p>
+    <p>User Behavior: <%= analytics.userBehavior %></p>
+  </div>
+</body>
+</html>

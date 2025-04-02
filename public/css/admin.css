@@ -1,0 +1,46 @@
+/* admin.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('/images/image6.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 900px;
+    border-radius: 8px;
+  }
+  .admin-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background: #333;
+    border-radius: 4px;
+  }
+  .admin-nav ul li {
+    margin: 0;
+  }
+  .admin-nav ul li a {
+    color: #fff;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .admin-nav ul li a:hover {
+    background: #555;
+  }
+  .job-list, .user-list {
+    list-style: none;
+    padding: 0;
+  }
+  .job-list li, .user-list li {
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  

@@ -1,0 +1,137 @@
+/* home.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    width: 100%;
+  }
+  
+  header {
+    position: relative;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .navbar .logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar .nav-links li {
+    margin-left: 20px;
+  }
+  
+  .navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar .nav-links li a:hover {
+    color: #ffdd57;
+  }
+  
+  .hero {
+    background: url('/images/image1.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+  }
+  
+  .overlay h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .overlay p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .search-form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-form input[type="text"] {
+    width: 300px;
+    padding: 12px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+  }
+  
+  .search-form button {
+    padding: 12px 20px;
+    border: none;
+    background: #ffdd57;
+    color: #333;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .search-form button:hover {
+    background: #f5c542;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background: #fff;
+  }
+  
+  .feature {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+  }
+  
+  .feature h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .feature p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+  }
+  

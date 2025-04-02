@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Management - Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/jobs">Job Management</a></li>
+        <li><a href="/admin/users">User Management</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+        <li><a href="/admin/analytics">Analytics</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <h1>Job Management</h1>
+    <a href="/admin/jobs/add">Add New Job</a>
+    <ul class="job-list">
+      <% jobs.forEach(job => { %>
+      <li>
+        <strong><%= job.position %></strong> - <%= job.jobType %> | Salary: <%= job.salary %> | Location: <%= job.location %>
+        <a href="/admin/jobs/edit/<%= job._id %>">Edit</a>
+        <a href="/admin/jobs/delete/<%= job._id %>">Delete</a>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings - Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/jobs">Job Management</a></li>
+        <li><a href="/admin/users">User Management</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+        <li><a href="/admin/analytics">Analytics</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <h1>Settings Management</h1>
+    <form action="/admin/settings" method="POST">
+      <label>Timezone:
+        <input type="text" name="timezone" value="<%= settings.timezone %>" required>
+      </label><br>
+      <label>Language:
+        <input type="text" name="language" value="<%= settings.language %>" required>
+      </label><br>
+      <label>Currency:
+        <input type="text" name="currency" value="<%= settings.currency %>" required>
+      </label><br>
+      <label>Theme:
+        <select name="theme" required>
+          <option value="default">Default</option>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </label><br>
+      <button type="submit">Save Settings</button>
+    </form>
+  </div>
+</body>
+</html>

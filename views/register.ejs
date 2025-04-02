@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+  <div class="register-container">
+    <div class="register-card">
+      <h1>Register</h1>
+      <form action="/auth/register" method="POST">
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" name="username" required>
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" name="password" required>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <div class="redirect">
+        Already have an account? <a href="/auth/login">Login Here</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

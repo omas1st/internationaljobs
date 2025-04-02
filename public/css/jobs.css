@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('/images/image2.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 8px;
+  }
+  .job-list li {
+    margin: 10px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  nav a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  

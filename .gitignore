@@ -1,0 +1,23 @@
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+
+# Build output
+/dist
+/build
+
+# Dependency directories
+jspm_packages/
+
+# OS-specific files
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# IDE files
+.vscode/
+.idea/
+

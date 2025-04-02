@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Job</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add New Job</h1>
+    <form action="/admin/add-job" method="POST">
+      <label>Job Type: <input type="text" name="jobType" required></label><br>
+      <label>Position: <input type="text" name="position" required></label><br>
+      <label>Salary: <input type="number" name="salary" required></label><br>
+      <label>Location: <input type="text" name="location" required></label><br>
+      <button type="submit">Add Job</button>
+    </form>
+  </div>
+</body>
+</html>

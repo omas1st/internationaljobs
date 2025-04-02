@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Listings</title>
+  <link rel="stylesheet" href="/css/jobs.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/">Home</a> |
+      <a href="/auth/login">Login</a> |
+      <a href="/auth/register">Register</a>
+    </nav>
+    <h1>Available Jobs</h1>
+    <ul class="job-list">
+      <% jobs.forEach(job => { %>
+      <li class="job-item">
+        <div class="company-logo">
+          <img src="<%= job.companyImage ? job.companyImage : '/images/default_company.png' %>" alt="<%= job.companyName %>">
+        </div>
+        <div class="job-info">
+          <h2><%= job.companyName %></h2>
+          <p><strong>Position:</strong> <%= job.position %></p>
+          <p><strong>Job Type:</strong> <%= job.jobType %></p>
+          <p><strong>Salary:</strong> $<%= job.salary %></p>
+          <p><strong>Location:</strong> <%= job.location %></p>
+          <a class="apply-btn" href="/jobs/apply/<%= job._id %>">Apply</a>
+        </div>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <style>
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+    .stat {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      flex: 1;
+      margin: 0 10px;
+    }
+    .stat h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/jobs">Job Management</a></li>
+        <li><a href="/admin/users">User Management</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+        <li><a href="/admin/analytics">Analytics</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, <%= user.username %>!</p>
+    <section class="stats">
+      <div class="stat">
+        <h2>Total Jobs</h2>
+        <p id="totalJobs"><%= totalJobs %></p>
+      </div>
+      <div class="stat">
+        <h2>Total Users</h2>
+        <p id="totalUsers"><%= totalUsers %></p>
+      </div>
+      <div class="stat">
+        <h2>Traffic Today</h2>
+        <p id="trafficToday"><%= trafficToday %></p>
+      </div>
+      <div class="stat">
+        <h2>Active Users</h2>
+        <p id="activeUsers"><%= activeUsers %></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Job</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Job</h1>
+    <form action="/admin/edit-job/<%= job._id %>" method="POST">
+      <label>Job Type: <input type="text" name="jobType" value="<%= job.jobType %>" required></label><br>
+      <label>Position: <input type="text" name="position" value="<%= job.position %>" required></label><br>
+      <label>Salary: <input type="number" name="salary" value="<%= job.salary %>" required></label><br>
+      <label>Location: <input type="text" name="location" value="<%= job.location %>" required></label><br>
+      <button type="submit">Update Job</button>
+    </form>
+  </div>
+</body>
+</html>

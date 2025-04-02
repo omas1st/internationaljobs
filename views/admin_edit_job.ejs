@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Job - Admin</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="admin-nav">
+      <ul>
+        <li><a href="/admin">Dashboard</a></li>
+        <li><a href="/admin/jobs">Job Management</a></li>
+        <li><a href="/admin/users">User Management</a></li>
+        <li><a href="/admin/settings">Settings</a></li>
+        <li><a href="/admin/analytics">Analytics</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      </ul>
+    </nav>
+    <h1>Edit Job</h1>
+    <form action="/admin/jobs/edit/<%= job._id %>" method="POST">
+      <div class="input-group">
+        <label>Company Name:</label>
+        <input type="text" name="companyName" value="<%= job.companyName %>" required>
+      </div>
+      <div class="input-group">
+        <label>Company Image URL:</label>
+        <input type="text" name="companyImage" value="<%= job.companyImage %>" placeholder="http://...">
+      </div>
+      <div class="input-group">
+        <label>Job Type:</label>
+        <input type="text" name="jobType" value="<%= job.jobType %>" required>
+      </div>
+      <div class="input-group">
+        <label>Position:</label>
+        <input type="text" name="position" value="<%= job.position %>" required>
+      </div>
+      <div class="input-group">
+        <label>Salary:</label>
+        <input type="number" name="salary" value="<%= job.salary %>" required>
+      </div>
+      <div class="input-group">
+        <label>Location:</label>
+        <input type="text" name="location" value="<%= job.location %>" required>
+      </div>
+      <button type="submit">Update Job</button>
+    </form>
+  </div>
+</body>
+</html>
