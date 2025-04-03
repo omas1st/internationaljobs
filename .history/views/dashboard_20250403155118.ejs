@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apply for Job</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="dashboard-nav">
+      <a href="/" class="nav-brand">JobPortal</a>
+      <div class="nav-links">
+        <a href="/dashboard" class="btn-back">
+          <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+      </div>
+    </nav>
+
+    <div class="application-guide">
+      <h1><i class="fas fa-hand-pointer"></i> Application Instructions</h1>
+      
+      <div class="guide-steps">
+        <div class="step-card">
+          <i class="fas fa-user-edit"></i>
+          <h2>1. Complete Your Profile</h2>
+          <p>Ensure your profile information is complete and up-to-date before applying.</p>
+          <a href="/dashboard/edit" class="btn-guide">Edit Profile Now</a>
+        </div>
+
+        <div class="step-card">
+          <i class="fas fa-passport"></i>
+          <h2>2. Prepare Travel Documents</h2>
+          <p>For international positions, ensure you have all required travel documents ready.</p>
+          <a href="/dashboard/prepare-travel-docs" class="btn-guide">Prepare Documents</a>
+        </div>
+
+        <div class="step-card">
+          <i class="fas fa-comments"></i>
+          <h2>3. Application Process</h2>
+          <p>After submission, our team will contact you via WhatsApp or Gmail for next steps.</p>
+        </div>
+      </div>
+
+      <form action="/apply-job/<%= jobId %>" method="POST" class="application-form">
+        <div class="form-notice">
+          <i class="fas fa-info-circle"></i>
+          <p>By clicking the button below, you agree to our terms and confirm your profile information is accurate.</p>
+        </div>
+
+        <button type="submit" class="btn-submit-application">
+          <i class="fas fa-paper-plane"></i>
+          Submit Application
+        </button>
+      </form>
+
+      <% if (message) { %>
+        <div class="application-alert <%= message.type %>">
+          <%= message.text %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application History</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="dashboard-nav">
+      <a href="/" class="nav-brand">JobPortal</a>
+      <div class="nav-links">
+        <a href="/dashboard" class="btn-back">
+          <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+      </div>
+    </nav>
+
+    <div class="applications-history">
+      <h1>Your Application History</h1>
+      <div class="applications-list">
+        <% applications.forEach(application => { %>
+          <div class="application-item">
+            <h3><%= application.jobTitle %></h3>
+            <div class="application-meta">
+              <span class="company"><%= application.company %></span>
+              <span class="status <%= application.status.toLowerCase() %>">
+                <%= application.status %>
+              </span>
+              <span class="date"><%= application.appliedDate %></span>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="dashboard-nav">
+      <a href="/" class="nav-brand">JobPortal</a>
+      <div class="nav-links">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/jobs"><i class="fas fa-briefcase"></i> Jobs</a>
+        <form action="/auth/logout" method="POST" class="logout-form">
+          <button type="submit" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="dashboard-header">
+      <div class="profile-header">
+        <img src="<%= user.profilePicture || '/images/default-avatar.jpg' %>" alt="Profile" class="profile-pic">
+        <div>
+          <h1>Welcome, <%= user.username %>!</h1>
+          <p class="user-email"><%= user.email %></p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="/dashboard/edit" class="btn-edit-profile"><i class="fas fa-edit"></i> Edit Profile</a>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- Left Column -->
+      <div class="dashboard-column">
+        <section class="dashboard-card profile-section">
+          <h2><i class="fas fa-user-circle"></i> Profile Overview</h2>
+          <div class="profile-grid">
+            <!-- Profile content remains same -->
+          </div>
+        </section>
+
+        <section class="dashboard-card applications-section">
+          <h2><i class="fas fa-file-alt"></i> Recent Applications</h2>
+          <!-- Applications list -->
+          <a href="/dashboard/applications" class="btn-view-all">View All Applications →</a>
+        </section>
+      </div>
+
+      <!-- Right Column -->
+      <div class="dashboard-column">
+        <!-- Restored Travel Section -->
+        <section class="dashboard-card travel-section">
+          <h2><i class="fas fa-plane-departure"></i> Travel Documents</h2>
+          <div class="travel-buttons">
+            <a href="/dashboard/prepare-travel-docs" class="travel-button">
+              <i class="fas fa-file-alt"></i>
+              Prepare Documents
+            </a>
+          </div>
+        </section>
+
+        <!-- Tasks Section -->
+        <section class="dashboard-card tasks-section">
+          <h2><i class="fas fa-tasks"></i> Current Tasks</h2>
+          <div class="task-buttons">
+            <a href="#task-link" class="task-button">
+              <i class="fas fa-play-circle"></i>
+              Start Task
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

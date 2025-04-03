@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Travel Links</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .travel-links-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .link-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .link-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    
+    .link-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .test-button {
+      background: #3b82f6;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="travel-links-container">
+    <h1>Manage Travel Links</h1>
+    
+    <form class="link-form" action="/admin/travel-links/add" method="POST">
+      <input type="text" name="title" placeholder="Button Title" required>
+      <input type="url" name="url" value="<%= defaultLink %>" required>
+      <input type="text" name="icon" placeholder="Font Awesome icon class" required>
+      <button type="submit" class="test-button">Add Link</button>
+    </form>
+
+    <% travelLinks.forEach(link => { %>
+      <div class="link-item">
+        <div style="flex: 1;">
+          <h3><%= link.title %></h3>
+          <p><%= link.url %></p>
+          <p><i class="<%= link.icon %>"></i> <%= link.icon %></p>
+        </div>
+        
+        <div class="link-actions">
+          <a href="<%= link.url %>" class="test-button" target="_blank">Test Link</a>
+          <form action="/admin/travel-links/edit/<%= link._id %>" method="POST">
+            <button type="submit" class="test-button">Edit</button>
+          </form>
+          <form action="/admin/travel-links/delete/<%= link._id %>" method="POST">
+            <button type="submit" class="test-button" style="background: #ef4444;">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

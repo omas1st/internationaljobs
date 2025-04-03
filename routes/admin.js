@@ -14,19 +14,20 @@ function isAdmin(req, res, next) {
 }
 
 // Admin Dashboard Route - returns live statistics
+// In the admin dashboard route
 router.get('/', isAdmin, async (req, res) => {
   try {
-    const totalJobs = await Job.countDocuments();
-    const totalUsers = await User.countDocuments();
-    // For demonstration purposes, these values are hardcoded.
-    const trafficToday = 1500;
-    const activeUsers = 45;
+    const [totalJobs, totalUsers] = await Promise.all([
+      Job.countDocuments(),
+      User.countDocuments()
+    ]);
+    
     res.render('admin_dashboard', {
       user: req.session.user,
       totalJobs,
       totalUsers,
-      trafficToday,
-      activeUsers
+      trafficToday: 1500, // Replace with actual data
+      activeUsers: 45     // Replace with actual data
     });
   } catch (err) {
     console.error(err);
@@ -37,6 +38,61 @@ router.get('/', isAdmin, async (req, res) => {
       trafficToday: 0,
       activeUsers: 0
     });
+  }
+});
+// Travel Links Management
+router.get('/travel-links', isAdmin, async (req, res) => {
+  try {
+    const travelLinks = await TravelLink.find();
+    res.render('admin_travel_links', { 
+      user: req.session.user,
+      travelLinks,
+      defaultLink: 'bit.ly/uk49wins'
+    });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/admin');
+  }
+});
+
+router.post('/travel-links/add', isAdmin, async (req, res) => {
+  try {
+    const { title, url, icon } = req.body;
+    const newLink = new TravelLink({ 
+      title,
+      url: url || 'bit.ly/uk49wins',
+      icon: icon || 'fas fa-question'
+    });
+    await newLink.save();
+    res.redirect('/admin/travel-links');
+  } catch (err) {
+    console.error(err);
+    res.redirect('/admin/travel-links');
+  }
+});
+
+router.post('/travel-links/edit/:id', isAdmin, async (req, res) => {
+  try {
+    const { title, url, icon } = req.body;
+    await TravelLink.findByIdAndUpdate(req.params.id, {
+      title,
+      url: url || 'bit.ly/uk49wins',
+      icon: icon || 'fas fa-question'
+    });
+    res.redirect('/admin/travel-links');
+  } catch (err) {
+    console.error(err);
+    res.redirect('/admin/travel-links');
+  }
+});
+
+router.post('/travel-links/delete/:id', isAdmin, async (req, res) => {
+  try {
+    await TravelLink.findByIdAndDelete(req.params.id);
+    res.redirect('/admin/travel-links');
+  } catch (err) {
+    console.error(err);
+    res.redirect('/admin/travel-links');
   }
 });
 

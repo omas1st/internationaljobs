@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="dashboard-nav">
+      <a href="/" class="nav-brand">JobPortal</a>
+      <div class="nav-links">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/jobs"><i class="fas fa-briefcase"></i> Jobs</a>
+        <form action="/auth/logout" method="POST" class="logout-form">
+          <button type="submit" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="dashboard-header">
+      <div class="profile-header">
+        <img src="<%= user.profilePicture || '/images/default-avatar.jpg' %>" alt="Profile" class="profile-pic">
+        <div>
+          <h1>Welcome, <%= user.username %>!</h1>
+          <p class="user-email"><%= user.email %></p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="/dashboard/edit" class="btn-edit-profile">
+          <i class="fas fa-edit"></i> Edit Profile
+        </a>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- Left Column -->
+      <div class="dashboard-column">
+        <!-- Profile Overview Section -->
+<section class="dashboard-card profile-section">
+  <h2><i class="fas fa-user-circle"></i> Profile Overview</h2>
+  <div class="profile-grid">
+    <div class="profile-column">
+      <div class="profile-item">
+        <i class="fas fa-user-tag"></i>
+        <div>
+          <span class="item-label">Full Name</span>
+          <span class="item-value"><%= user.fullName || 'Not set' %></span>
+        </div>
+      </div>
+      <div class="profile-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <span class="item-label">Location</span>
+          <span class="item-value"><%= [user.country, user.address].filter(Boolean).join(' • ') || 'Not set' %></span>
+        </div>
+      </div>
+      <div class="profile-item">
+        <i class="fas fa-venus-mars"></i>
+        <div>
+          <span class="item-label">Demographics</span>
+          <span class="item-value"><%= [user.sex, user.age ? `${user.age} yrs` : ''].filter(Boolean).join(' • ') || 'Not set' %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-column">
+      <div class="profile-item">
+        <i class="fas fa-address-book"></i>
+        <div>
+          <span class="item-label">Contacts</span>
+          <span class="item-value">
+            <%= [user.phoneNumber, user.whatsappNumber].filter(Boolean).join(' • ') || 'Not set' %>
+          </span>
+        </div>
+      </div>
+      <div class="profile-item">
+        <i class="fas fa-graduation-cap"></i>
+        <div>
+          <span class="item-label">Education</span>
+          <span class="item-value"><%= user.degrees.join(', ') || 'Not set' %></span>
+        </div>
+      </div>
+      <div class="profile-item">
+        <i class="fas fa-language"></i>
+        <div>
+          <span class="item-label">Languages</span>
+          <span class="item-value"><%= user.languages.join(', ') || 'Not set' %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="profile-footer">
+    <i class="fas fa-envelope"></i>
+    <span class="item-value"><%= user.gmail || 'No email provided' %></span>
+    <span class="member-since">Member since <%= new Date(user.createdAt).toLocaleDateString() %></span>
+  </div>
+</section>
+        <section class="dashboard-card applications-section">
+          <h2><i class="fas fa-file-alt"></i> Recent Applications</h2>
+          <div class="applications-list">
+            <% if (applications && applications.length > 0) { %>
+              <% applications.forEach(application => { %>
+                <div class="application-item">
+                  <div class="application-info">
+                    <h3><%= application.jobTitle %></h3>
+                    <p class="company-name"><%= application.company %></p>
+                    <div class="application-meta">
+                      <span class="application-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <%= application.appliedDate ? new Date(application.appliedDate).toDateString() : 'N/A' %>
+                      </span>
+                    </div>
+                  </div>
+                  <span class="status-badge <%= application.status ? application.status.toLowerCase() : '' %>">
+                    <%= application.status || 'Unknown' %>
+                  </span>
+                </div>
+              <% }) %>
+            <% } else { %>
+              <div class="empty-state">
+                <i class="fas fa-inbox"></i>
+                <p>No applications found</p>
+              </div>
+            <% } %>
+          </div>
+          <a href="/jobs/history" class="btn-view-all">View All Applications →</a>
+        </section>
+      </div>
+
+      <!-- Right Column -->
+      <div class="dashboard-column">
+        <section class="dashboard-card travel-section">
+          <h2><i class="fas fa-plane-departure"></i> Travel Documents</h2>
+          <div class="travel-buttons">
+            <a href="/dashboard/prepare-travel-docs" class="travel-button">
+              <i class="fas fa-file-alt"></i>
+              Prepare Travel Documents
+            </a>
+          </div>
+        </section>
+
+        <!-- Replace Quick Actions with Tasks Section -->
+<section class="dashboard-card tasks-section">
+  <h2><i class="fas fa-tasks"></i> Current Tasks</h2>
+  <div class="task-buttons">
+    <a href="#task-link" class="task-button">
+      <i class="fas fa-play-circle"></i>
+      Start Task
+    </a>
+  </div>
+</section>
+
+<!-- Update Applications Section -->
+<section class="dashboard-card applications-section">
+  <h2><i class="fas fa-file-alt"></i> Recent Applications</h2>
+  <div class="applications-list">
+    <% if (applications && applications.length > 0) { %>
+      <% applications.forEach(application => { %>
+        <div class="application-item">
+          <div class="application-info">
+            <h3><%= application.jobTitle %></h3>
+            <p class="company-name"><%= application.company %></p>
+            <div class="application-meta">
+              <span class="application-date">
+                <i class="fas fa-calendar-alt"></i>
+                <%= application.appliedDate.toDateString() %>
+              </span>
+              <span class="status-badge <%= application.status.toLowerCase() %>">
+                <%= application.status %>
+              </span>
+            </div>
+          </div>
+          <a href="/apply-job/<%= application.jobId %>" class="btn-apply">Apply Now</a>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <div class="empty-state">
+        <i class="fas fa-inbox"></i>
+        <p>No applications found</p>
+      </div>
+    <% } %>
+  </div>
+  <a href="/jobs/history" class="btn-view-all">View All Applications →</a>
+</section>
+    <% } %>
+  </div>
+
+  <script>
+    // Resume Upload Handler
+    document.getElementById('resumeUpload').addEventListener('change', async function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append('resume', file);
+
+        try {
+          const response = await fetch('/profile/upload-resume', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (response.ok) {
+            alert('Resume uploaded successfully!');
+            window.location.reload();
+          } else {
+            alert('Error uploading resume');
+          }
+        } catch (error) {
+          console.error('Upload error:', error);
+          alert('Error uploading resume');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

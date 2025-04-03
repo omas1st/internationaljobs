@@ -3,11 +3,13 @@
 <head>
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     .stats {
       display: flex;
       justify-content: space-around;
       margin: 20px 0;
+      gap: 1rem;
     }
     .stat {
       background: #f0f0f0;
@@ -15,10 +17,23 @@
       border-radius: 6px;
       text-align: center;
       flex: 1;
-      margin: 0 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .stat h2 {
       margin-bottom: 10px;
+      color: #2563eb;
+    }
+    .admin-nav ul {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+    .admin-nav form button {
+      background: none;
+      border: none;
+      color: #333;
+      cursor: pointer;
+      font-size: 1rem;
     }
   </style>
 </head>
@@ -26,31 +41,46 @@
   <div class="container">
     <nav class="admin-nav">
       <ul>
-        <li><a href="/admin">Dashboard</a></li>
-        <li><a href="/admin/jobs">Job Management</a></li>
-        <li><a href="/admin/users">User Management</a></li>
-        <li><a href="/admin/settings">Settings</a></li>
-        <li><a href="/admin/analytics">Analytics</a></li>
-        <li><a href="/auth/logout">Logout</a></li>
+        <li><a href="/admin"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="/admin/jobs"><i class="fas fa-briefcase"></i> Jobs</a></li>
+        <li><a href="/admin/users"><i class="fas fa-users"></i> Users</a></li>
+        <li><a href="/admin/settings"><i class="fas fa-cog"></i> Settings</a></li>
+        <li>
+          <form action="/auth/logout" method="POST">
+            <button type="submit" class="logout-btn">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+          </form>
+        </li>
       </ul>
     </nav>
-    <h1>Admin Dashboard</h1>
-    <p>Welcome, <%= user.username %>!</p>
+    
+    <div class="admin-header">
+      <h1>Admin Dashboard</h1>
+      <div class="admin-info">
+        <img src="<%= user.profilePicture || '/images/default-avatar.jpg' %>" class="admin-avatar">
+        <div>
+          <p>Welcome, <strong><%= user.username %></strong></p>
+          <small><%= user.email %></small>
+        </div>
+      </div>
+    </div>
+
     <section class="stats">
       <div class="stat">
-        <h2>Total Jobs</h2>
+        <h2><i class="fas fa-briefcase"></i> Total Jobs</h2>
         <p id="totalJobs"><%= totalJobs %></p>
       </div>
       <div class="stat">
-        <h2>Total Users</h2>
+        <h2><i class="fas fa-users"></i> Total Users</h2>
         <p id="totalUsers"><%= totalUsers %></p>
       </div>
       <div class="stat">
-        <h2>Traffic Today</h2>
+        <h2><i class="fas fa-chart-line"></i> Traffic Today</h2>
         <p id="trafficToday"><%= trafficToday %></p>
       </div>
       <div class="stat">
-        <h2>Active Users</h2>
+        <h2><i class="fas fa-user-clock"></i> Active Users</h2>
         <p id="activeUsers"><%= activeUsers %></p>
       </div>
     </section>

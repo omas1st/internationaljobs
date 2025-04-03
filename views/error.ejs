@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Error</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Application Error</h1>
+    <% if (error) { %>
+      <div class="error-card">
+        <h2><%= error.message %></h2>
+        <pre><%= error.stack %></pre>
+      </div>
+    <% } else { %>
+      <p>An unexpected error occurred</p>
+    <% } %>
+    <a href="/" class="btn-home">Return to Homepage</a>
+  </div>
+</body>
+</html>

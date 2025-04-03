@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - JobPortal</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 5rem 2rem;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 2rem;
+        }
+
+        .home-link {
+            padding: 1rem 2rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .home-link:hover {
+            background: #1d4ed8;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <i class="fas fa-exclamation-triangle fa-3x" style="color: #f59e0b; margin-bottom: 2rem;"></i>
+            <h1 class="error-message">Oops! Page Not Found</h1>
+            <p class="error-description">
+                The page you're looking for might have been removed, had its name changed, 
+                or is temporarily unavailable.
+            </p>
+            <a href="/" class="home-link">
+                <i class="fas fa-home"></i> Return to Homepage
+            </a>
+        </div>
+    </div>
+</body>
+</html>
